@@ -24,6 +24,8 @@ class HomeView extends StatelessWidget {
             SizedBox(
                 height: 20), // Add some space between the text and the list
             WorkoutCard(),
+            SizedBox(height: 20),
+            CategoriesCard(),
           ],
         ),
       ),
@@ -141,4 +143,123 @@ class WorkoutCard extends StatelessWidget {
       ),
     );
   }
+}
+
+class CategoriesCard extends StatelessWidget {
+  const CategoriesCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // Calculate the width of the card based on the device's screen width
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double cardWidth =
+        screenWidth * 0.9; // Adjust this percentage as needed
+
+    final List<Category> categories = [
+      Category(
+        name: 'Cardio',
+        backgroundColor: Colors.redAccent,
+        imageUrl: 'lib/images/cardio.jpeg',
+      ),
+      Category(
+        name: 'Yoga',
+        backgroundColor: Colors.blueAccent,
+        imageUrl: 'lib/images/yoga.jpeg',
+      ),
+      Category(
+        name: 'Boxing',
+        backgroundColor: Colors.greenAccent,
+        imageUrl: 'lib/images/boxing.jpeg',
+      ),
+      // Add more categories as needed
+    ];
+
+    return Container(
+      width: cardWidth,
+      height: 200, // Increased height to accommodate ListView
+      padding: const EdgeInsets.all(10.0),
+      decoration: BoxDecoration(
+        color: Colors.white, // Set background color
+        borderRadius: BorderRadius.circular(15), // Rounded corners
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black12, // Set shadow color
+            blurRadius: 10, // Set shadow blur radius
+            offset: Offset(0, 5), // Set shadow offset
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Categories',
+            style: TextStyle(
+              color: Color(0xFF0F0E0E),
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Expanded(
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount:
+                  categories.length, // Use the length of the categories list
+              itemBuilder: (context, index) {
+                final category = categories[index];
+                return Container(
+                  width: 150,
+                  height: 150,
+                  margin: const EdgeInsets.only(right: 10),
+                  child: Stack(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          color: category.backgroundColor,
+                          borderRadius: BorderRadius.circular(10),
+                          image: DecorationImage(
+                            image: AssetImage(category.imageUrl),
+                            fit: BoxFit.cover,
+                            colorFilter: ColorFilter.mode(
+                              category.backgroundColor.withOpacity(1.0),
+                              BlendMode.dstATop,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Positioned(
+                        top: 10,
+                        left: 10,
+                        child: Text(
+                          category.name,
+                          style: const TextStyle(
+                            color: Color.fromARGB(255, 242, 232, 232),
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Category {
+  final String name;
+  final Color backgroundColor;
+  final String imageUrl;
+
+  Category({
+    required this.name,
+    required this.backgroundColor,
+    required this.imageUrl,
+  });
 }

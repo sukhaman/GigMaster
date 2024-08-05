@@ -29,10 +29,11 @@ class MainScreen extends ConsumerWidget {
           ref.read(indexBottomNavbarProvider.notifier).update((state) => value);
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.favorite), label: 'Favorite'),
-          BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Setting'),
+              icon: Icon(Icons.sports_gymnastics), label: 'Workouts'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.breakfast_dining), label: 'Meals'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
       body: bodies[indexBottomNavbar],
