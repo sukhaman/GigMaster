@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gigmaster/bloc/tab_bloc.dart';
 import 'package:gigmaster/views/home_view.dart';
 import 'package:gigmaster/views/meals_view.dart';
-import 'package:gigmaster/views/settings_view.dart';
+import 'package:gigmaster/views/profile_view.dart';
 
 class MainScreen extends ConsumerWidget {
   const MainScreen({super.key});
@@ -18,7 +18,7 @@ class MainScreen extends ConsumerWidget {
         child: MealsView(),
       ),
       const Center(
-        child: SettingsView(),
+        child: ProfileView(),
       ),
     ];
     final indexBottomNavbar = ref.watch(indexBottomNavbarProvider);
