@@ -203,54 +203,53 @@ class CategoriesCard extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount:
-                  categories.length, // Use the length of the categories list
-              itemBuilder: (context, index) {
-                final category = categories[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.of(context)
-                        .pushNamed(categoryRoute, arguments: category);
-                  },
-                  child: Container(
-                    width: 150,
-                    height: 150,
-                    margin: const EdgeInsets.only(right: 10),
-                    child: Stack(
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: category.backgroundColor,
-                            borderRadius: BorderRadius.circular(10),
-                            image: DecorationImage(
-                              image: AssetImage(category.imageUrl),
-                              fit: BoxFit.cover,
-                              colorFilter: ColorFilter.mode(
-                                category.backgroundColor.withOpacity(1.0),
-                                BlendMode.dstATop,
+            child: Container(
+              color: Colors.transparent,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount:
+                    categories.length, // Use the length of the categories list
+                itemBuilder: (context, index) {
+                  final category = categories[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context)
+                          .pushNamed(categoryRoute, arguments: category);
+                    },
+                    child: Container(
+                      width: 150,
+                      height: 150,
+                      margin: const EdgeInsets.only(right: 10),
+                      child: Stack(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              color: Colors.transparent,
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: AssetImage(category.imageUrl),
+                                fit: BoxFit.cover,
                               ),
                             ),
                           ),
-                        ),
-                        Positioned(
-                          top: 10,
-                          left: 10,
-                          child: Text(
-                            category.name,
-                            style: const TextStyle(
-                              color: Color.fromARGB(255, 242, 232, 232),
-                              fontSize: 16,
-                              fontWeight: FontWeight.bold,
+                          Positioned(
+                            top: 10,
+                            left: 10,
+                            child: Text(
+                              category.name,
+                              style: const TextStyle(
+                                color: Color.fromARGB(255, 242, 232, 232),
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ],
