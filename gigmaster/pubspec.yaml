@@ -71,6 +71,7 @@ flutter:
     - lib/images/boxing.jpeg
     - lib/images/yoga.jpeg
     - lib/images/hiking.jpeg
+    - lib/images/profile_image.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
