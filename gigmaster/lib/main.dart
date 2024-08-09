@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gigmaster/constants/routes.dart';
 import 'package:gigmaster/views/category_view.dart';
 import 'package:gigmaster/views/tab_bar.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {

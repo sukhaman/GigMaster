@@ -93,6 +93,58 @@ class ProfileView extends StatelessWidget {
                 ),
               ),
             ),
+
+            const SizedBox(height: 20),
+
+            // Menu Items
+            MenuItem(
+              icon: Icons.flag,
+              color: Colors.purpleAccent,
+              text: 'Goals',
+              onTap: () {
+                // Navigate to Goals Screen
+              },
+            ),
+            MenuItem(
+              icon: Icons.history,
+              color: Colors.blueAccent,
+              text: 'Workout History',
+              onTap: () {
+                // Navigate to Workout History Screen
+              },
+            ),
+            MenuItem(
+              icon: Icons.track_changes,
+              color: Colors.orangeAccent,
+              text: 'Activity Tracking',
+              onTap: () {
+                // Navigate to Activity Tracking Screen
+              },
+            ),
+            MenuItem(
+              icon: Icons.restaurant,
+              color: Colors.teal,
+              text: 'Nutrition Tracking',
+              onTap: () {
+                // Navigate to Nutrition Tracking Screen
+              },
+            ),
+            MenuItem(
+              icon: Icons.fitness_center,
+              color: Colors.lightBlue,
+              text: 'My Body',
+              onTap: () {
+                // Navigate to My Body Screen
+              },
+            ),
+            MenuItem(
+              icon: Icons.settings,
+              color: Colors.grey,
+              text: 'Settings',
+              onTap: () {
+                // Navigate to Settings Screen
+              },
+            ),
           ],
         ),
       ),
@@ -126,6 +178,47 @@ class ProfileInfo extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class MenuItem extends StatelessWidget {
+  final IconData icon;
+  final Color color;
+  final String text;
+  final VoidCallback onTap;
+
+  const MenuItem({
+    required this.icon,
+    required this.color,
+    required this.text,
+    required this.onTap,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                Icon(icon, color: color),
+                const SizedBox(width: 16),
+                Text(
+                  text,
+                  style: const TextStyle(fontSize: 18),
+                ),
+              ],
+            ),
+            const Icon(Icons.arrow_forward_ios, color: Colors.black, size: 18),
+          ],
+        ),
+      ),
     );
   }
 }
