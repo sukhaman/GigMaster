@@ -43,6 +43,46 @@ class ProfileView extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 20),
+
+            // Progress Card
+            Card(
+              color: Colors.black,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+              ),
+              margin: const EdgeInsets.symmetric(horizontal: 16.0),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.timeline, color: Colors.orange.shade300),
+                        const SizedBox(width: 10),
+                        const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Lose 20 lbs In 4 Months',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 16),
+                            ),
+                            Text(
+                              '22.2% Progress',
+                              style: TextStyle(
+                                  color: Colors.white70, fontSize: 12),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const Icon(Icons.arrow_forward_ios,
+                        color: Colors.white, size: 18),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
