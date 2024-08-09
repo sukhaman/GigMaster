@@ -38,6 +38,16 @@ class ProfileView extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
+                    SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        ProfileInfo(label: '29y', value: 'Year'),
+                        ProfileInfo(label: 'Male', value: 'Gender'),
+                        ProfileInfo(label: '6.1 Feet', value: 'Height'),
+                        ProfileInfo(label: '192.6 lbs', value: 'Weight'),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -86,6 +96,36 @@ class ProfileView extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class ProfileInfo extends StatelessWidget {
+  final String label;
+  final String value;
+
+  const ProfileInfo({required this.label, required this.value, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text(
+          label,
+          style: const TextStyle(
+            color: Colors.black,
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          value,
+          style: const TextStyle(
+            color: Colors.black54,
+            fontSize: 14,
+          ),
+        ),
+      ],
     );
   }
 }
